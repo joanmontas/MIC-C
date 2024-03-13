@@ -1,0 +1,1289 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statements
+Rule 1     statements -> statement
+Rule 2     statements -> statement statements
+Rule 3     statement -> expression SEMICOLON
+Rule 4     statement -> TYPE IDENT ASSIGN expression SEMICOLON
+Rule 5     statement -> IDENT ASSIGN expression SEMICOLON
+Rule 6     statement -> LCURL statements RCURL
+Rule 7     statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+Rule 8     statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+Rule 9     statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+Rule 10    expression -> IDENT
+Rule 11    expression -> TYPE
+Rule 12    expression -> NUMBER
+Rule 13    expression -> STRING
+Rule 14    expression -> expression PLUS expression
+Rule 15    expression -> expression MINUS expression
+Rule 16    expression -> expression TIMES expression
+Rule 17    expression -> expression DIVIDE expression
+Rule 18    expression -> expression LESSER expression
+Rule 19    expression -> expression EQUAL expression
+Rule 20    expression -> MINUS NUMBER
+Rule 21    statement -> TIMES statement
+Rule 22    expression -> LPAREN expression RPAREN
+
+Terminals, with rules where they appear
+
+ASSIGN               : 4 5
+DIVIDE               : 17
+ELSE                 : 8
+EQUAL                : 19
+IDENT                : 4 5 10
+IF                   : 7 8
+LCURL                : 6 7 8 8 9
+LESSER               : 18
+LPAREN               : 7 8 9 22
+MINUS                : 15 20
+NUMBER               : 12 20
+PLUS                 : 14
+RCURL                : 6 7 8 8 9
+RPAREN               : 7 8 9 22
+SEMICOLON            : 3 4 5 7 8 9
+STRING               : 13
+TIMES                : 16 21
+TYPE                 : 4 11
+WHILE                : 9
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 3 4 5 7 8 9 14 14 15 15 16 16 17 17 18 18 19 19 22
+statement            : 1 2 21
+statements           : 2 6 7 8 8 9 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statements
+    (1) statements -> . statement
+    (2) statements -> . statement statements
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . TYPE IDENT ASSIGN expression SEMICOLON
+    (5) statement -> . IDENT ASSIGN expression SEMICOLON
+    (6) statement -> . LCURL statements RCURL
+    (7) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (8) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+    (9) statement -> . WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (21) statement -> . TIMES statement
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    TYPE            shift and go to state 4
+    IDENT           shift and go to state 5
+    LCURL           shift and go to state 6
+    IF              shift and go to state 7
+    WHILE           shift and go to state 9
+    TIMES           shift and go to state 10
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    statements                     shift and go to state 1
+    statement                      shift and go to state 2
+    expression                     shift and go to state 3
+
+state 1
+
+    (0) S' -> statements .
+
+
+
+state 2
+
+    (1) statements -> statement .
+    (2) statements -> statement . statements
+    (1) statements -> . statement
+    (2) statements -> . statement statements
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . TYPE IDENT ASSIGN expression SEMICOLON
+    (5) statement -> . IDENT ASSIGN expression SEMICOLON
+    (6) statement -> . LCURL statements RCURL
+    (7) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (8) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+    (9) statement -> . WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (21) statement -> . TIMES statement
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    $end            reduce using rule 1 (statements -> statement .)
+    RCURL           reduce using rule 1 (statements -> statement .)
+    TYPE            shift and go to state 4
+    IDENT           shift and go to state 5
+    LCURL           shift and go to state 6
+    IF              shift and go to state 7
+    WHILE           shift and go to state 9
+    TIMES           shift and go to state 10
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    statement                      shift and go to state 2
+    statements                     shift and go to state 14
+    expression                     shift and go to state 3
+
+state 3
+
+    (3) statement -> expression . SEMICOLON
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+    SEMICOLON       shift and go to state 15
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESSER          shift and go to state 20
+    EQUAL           shift and go to state 21
+
+
+state 4
+
+    (4) statement -> TYPE . IDENT ASSIGN expression SEMICOLON
+    (11) expression -> TYPE .
+
+    IDENT           shift and go to state 22
+    SEMICOLON       reduce using rule 11 (expression -> TYPE .)
+    PLUS            reduce using rule 11 (expression -> TYPE .)
+    MINUS           reduce using rule 11 (expression -> TYPE .)
+    TIMES           reduce using rule 11 (expression -> TYPE .)
+    DIVIDE          reduce using rule 11 (expression -> TYPE .)
+    LESSER          reduce using rule 11 (expression -> TYPE .)
+    EQUAL           reduce using rule 11 (expression -> TYPE .)
+
+
+state 5
+
+    (5) statement -> IDENT . ASSIGN expression SEMICOLON
+    (10) expression -> IDENT .
+
+    ASSIGN          shift and go to state 23
+    SEMICOLON       reduce using rule 10 (expression -> IDENT .)
+    PLUS            reduce using rule 10 (expression -> IDENT .)
+    MINUS           reduce using rule 10 (expression -> IDENT .)
+    TIMES           reduce using rule 10 (expression -> IDENT .)
+    DIVIDE          reduce using rule 10 (expression -> IDENT .)
+    LESSER          reduce using rule 10 (expression -> IDENT .)
+    EQUAL           reduce using rule 10 (expression -> IDENT .)
+
+
+state 6
+
+    (6) statement -> LCURL . statements RCURL
+    (1) statements -> . statement
+    (2) statements -> . statement statements
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . TYPE IDENT ASSIGN expression SEMICOLON
+    (5) statement -> . IDENT ASSIGN expression SEMICOLON
+    (6) statement -> . LCURL statements RCURL
+    (7) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (8) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+    (9) statement -> . WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (21) statement -> . TIMES statement
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    TYPE            shift and go to state 4
+    IDENT           shift and go to state 5
+    LCURL           shift and go to state 6
+    IF              shift and go to state 7
+    WHILE           shift and go to state 9
+    TIMES           shift and go to state 10
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    statements                     shift and go to state 24
+    statement                      shift and go to state 2
+    expression                     shift and go to state 3
+
+state 7
+
+    (7) statement -> IF . LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (8) statement -> IF . LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+
+    LPAREN          shift and go to state 25
+
+
+state 8
+
+    (22) expression -> LPAREN . expression RPAREN
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    IDENT           shift and go to state 27
+    TYPE            shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 26
+
+state 9
+
+    (9) statement -> WHILE . LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+
+    LPAREN          shift and go to state 29
+
+
+state 10
+
+    (21) statement -> TIMES . statement
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . TYPE IDENT ASSIGN expression SEMICOLON
+    (5) statement -> . IDENT ASSIGN expression SEMICOLON
+    (6) statement -> . LCURL statements RCURL
+    (7) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (8) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+    (9) statement -> . WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (21) statement -> . TIMES statement
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    TYPE            shift and go to state 4
+    IDENT           shift and go to state 5
+    LCURL           shift and go to state 6
+    IF              shift and go to state 7
+    WHILE           shift and go to state 9
+    TIMES           shift and go to state 10
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    statement                      shift and go to state 30
+    expression                     shift and go to state 3
+
+state 11
+
+    (12) expression -> NUMBER .
+
+    SEMICOLON       reduce using rule 12 (expression -> NUMBER .)
+    PLUS            reduce using rule 12 (expression -> NUMBER .)
+    MINUS           reduce using rule 12 (expression -> NUMBER .)
+    TIMES           reduce using rule 12 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 12 (expression -> NUMBER .)
+    LESSER          reduce using rule 12 (expression -> NUMBER .)
+    EQUAL           reduce using rule 12 (expression -> NUMBER .)
+    RPAREN          reduce using rule 12 (expression -> NUMBER .)
+
+
+state 12
+
+    (13) expression -> STRING .
+
+    SEMICOLON       reduce using rule 13 (expression -> STRING .)
+    PLUS            reduce using rule 13 (expression -> STRING .)
+    MINUS           reduce using rule 13 (expression -> STRING .)
+    TIMES           reduce using rule 13 (expression -> STRING .)
+    DIVIDE          reduce using rule 13 (expression -> STRING .)
+    LESSER          reduce using rule 13 (expression -> STRING .)
+    EQUAL           reduce using rule 13 (expression -> STRING .)
+    RPAREN          reduce using rule 13 (expression -> STRING .)
+
+
+state 13
+
+    (20) expression -> MINUS . NUMBER
+
+    NUMBER          shift and go to state 31
+
+
+state 14
+
+    (2) statements -> statement statements .
+
+    $end            reduce using rule 2 (statements -> statement statements .)
+    RCURL           reduce using rule 2 (statements -> statement statements .)
+
+
+state 15
+
+    (3) statement -> expression SEMICOLON .
+
+    TYPE            reduce using rule 3 (statement -> expression SEMICOLON .)
+    IDENT           reduce using rule 3 (statement -> expression SEMICOLON .)
+    LCURL           reduce using rule 3 (statement -> expression SEMICOLON .)
+    IF              reduce using rule 3 (statement -> expression SEMICOLON .)
+    WHILE           reduce using rule 3 (statement -> expression SEMICOLON .)
+    TIMES           reduce using rule 3 (statement -> expression SEMICOLON .)
+    NUMBER          reduce using rule 3 (statement -> expression SEMICOLON .)
+    STRING          reduce using rule 3 (statement -> expression SEMICOLON .)
+    MINUS           reduce using rule 3 (statement -> expression SEMICOLON .)
+    LPAREN          reduce using rule 3 (statement -> expression SEMICOLON .)
+    $end            reduce using rule 3 (statement -> expression SEMICOLON .)
+    RCURL           reduce using rule 3 (statement -> expression SEMICOLON .)
+
+
+state 16
+
+    (14) expression -> expression PLUS . expression
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    IDENT           shift and go to state 27
+    TYPE            shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 32
+
+state 17
+
+    (15) expression -> expression MINUS . expression
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    IDENT           shift and go to state 27
+    TYPE            shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 33
+
+state 18
+
+    (16) expression -> expression TIMES . expression
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    IDENT           shift and go to state 27
+    TYPE            shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 34
+
+state 19
+
+    (17) expression -> expression DIVIDE . expression
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    IDENT           shift and go to state 27
+    TYPE            shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 35
+
+state 20
+
+    (18) expression -> expression LESSER . expression
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    IDENT           shift and go to state 27
+    TYPE            shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 36
+
+state 21
+
+    (19) expression -> expression EQUAL . expression
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    IDENT           shift and go to state 27
+    TYPE            shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 37
+
+state 22
+
+    (4) statement -> TYPE IDENT . ASSIGN expression SEMICOLON
+
+    ASSIGN          shift and go to state 38
+
+
+state 23
+
+    (5) statement -> IDENT ASSIGN . expression SEMICOLON
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    IDENT           shift and go to state 27
+    TYPE            shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 39
+
+state 24
+
+    (6) statement -> LCURL statements . RCURL
+
+    RCURL           shift and go to state 40
+
+
+state 25
+
+    (7) statement -> IF LPAREN . expression RPAREN LCURL statements RCURL SEMICOLON
+    (8) statement -> IF LPAREN . expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    IDENT           shift and go to state 27
+    TYPE            shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 41
+
+state 26
+
+    (22) expression -> LPAREN expression . RPAREN
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+    RPAREN          shift and go to state 42
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESSER          shift and go to state 20
+    EQUAL           shift and go to state 21
+
+
+state 27
+
+    (10) expression -> IDENT .
+
+    RPAREN          reduce using rule 10 (expression -> IDENT .)
+    PLUS            reduce using rule 10 (expression -> IDENT .)
+    MINUS           reduce using rule 10 (expression -> IDENT .)
+    TIMES           reduce using rule 10 (expression -> IDENT .)
+    DIVIDE          reduce using rule 10 (expression -> IDENT .)
+    LESSER          reduce using rule 10 (expression -> IDENT .)
+    EQUAL           reduce using rule 10 (expression -> IDENT .)
+    SEMICOLON       reduce using rule 10 (expression -> IDENT .)
+
+
+state 28
+
+    (11) expression -> TYPE .
+
+    RPAREN          reduce using rule 11 (expression -> TYPE .)
+    PLUS            reduce using rule 11 (expression -> TYPE .)
+    MINUS           reduce using rule 11 (expression -> TYPE .)
+    TIMES           reduce using rule 11 (expression -> TYPE .)
+    DIVIDE          reduce using rule 11 (expression -> TYPE .)
+    LESSER          reduce using rule 11 (expression -> TYPE .)
+    EQUAL           reduce using rule 11 (expression -> TYPE .)
+    SEMICOLON       reduce using rule 11 (expression -> TYPE .)
+
+
+state 29
+
+    (9) statement -> WHILE LPAREN . expression RPAREN LCURL statements RCURL SEMICOLON
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    IDENT           shift and go to state 27
+    TYPE            shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 43
+
+state 30
+
+    (21) statement -> TIMES statement .
+
+    TYPE            reduce using rule 21 (statement -> TIMES statement .)
+    IDENT           reduce using rule 21 (statement -> TIMES statement .)
+    LCURL           reduce using rule 21 (statement -> TIMES statement .)
+    IF              reduce using rule 21 (statement -> TIMES statement .)
+    WHILE           reduce using rule 21 (statement -> TIMES statement .)
+    TIMES           reduce using rule 21 (statement -> TIMES statement .)
+    NUMBER          reduce using rule 21 (statement -> TIMES statement .)
+    STRING          reduce using rule 21 (statement -> TIMES statement .)
+    MINUS           reduce using rule 21 (statement -> TIMES statement .)
+    LPAREN          reduce using rule 21 (statement -> TIMES statement .)
+    $end            reduce using rule 21 (statement -> TIMES statement .)
+    RCURL           reduce using rule 21 (statement -> TIMES statement .)
+
+
+state 31
+
+    (20) expression -> MINUS NUMBER .
+
+    SEMICOLON       reduce using rule 20 (expression -> MINUS NUMBER .)
+    PLUS            reduce using rule 20 (expression -> MINUS NUMBER .)
+    MINUS           reduce using rule 20 (expression -> MINUS NUMBER .)
+    TIMES           reduce using rule 20 (expression -> MINUS NUMBER .)
+    DIVIDE          reduce using rule 20 (expression -> MINUS NUMBER .)
+    LESSER          reduce using rule 20 (expression -> MINUS NUMBER .)
+    EQUAL           reduce using rule 20 (expression -> MINUS NUMBER .)
+    RPAREN          reduce using rule 20 (expression -> MINUS NUMBER .)
+
+
+state 32
+
+    (14) expression -> expression PLUS expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+    SEMICOLON       reduce using rule 14 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 14 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 14 (expression -> expression PLUS expression .)
+    LESSER          reduce using rule 14 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 14 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    EQUAL           shift and go to state 21
+
+  ! TIMES           [ reduce using rule 14 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 14 (expression -> expression PLUS expression .) ]
+  ! EQUAL           [ reduce using rule 14 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 16 ]
+  ! MINUS           [ shift and go to state 17 ]
+  ! LESSER          [ shift and go to state 20 ]
+
+
+state 33
+
+    (15) expression -> expression MINUS expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+    SEMICOLON       reduce using rule 15 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 15 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 15 (expression -> expression MINUS expression .)
+    LESSER          reduce using rule 15 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 15 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    EQUAL           shift and go to state 21
+
+  ! TIMES           [ reduce using rule 15 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 15 (expression -> expression MINUS expression .) ]
+  ! EQUAL           [ reduce using rule 15 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 16 ]
+  ! MINUS           [ shift and go to state 17 ]
+  ! LESSER          [ shift and go to state 20 ]
+
+
+state 34
+
+    (16) expression -> expression TIMES expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+    SEMICOLON       reduce using rule 16 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 16 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 16 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 16 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 16 (expression -> expression TIMES expression .)
+    LESSER          reduce using rule 16 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 16 (expression -> expression TIMES expression .)
+    EQUAL           shift and go to state 21
+
+  ! EQUAL           [ reduce using rule 16 (expression -> expression TIMES expression .) ]
+  ! PLUS            [ shift and go to state 16 ]
+  ! MINUS           [ shift and go to state 17 ]
+  ! TIMES           [ shift and go to state 18 ]
+  ! DIVIDE          [ shift and go to state 19 ]
+  ! LESSER          [ shift and go to state 20 ]
+
+
+state 35
+
+    (17) expression -> expression DIVIDE expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+    SEMICOLON       reduce using rule 17 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 17 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 17 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 17 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 17 (expression -> expression DIVIDE expression .)
+    LESSER          reduce using rule 17 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 17 (expression -> expression DIVIDE expression .)
+    EQUAL           shift and go to state 21
+
+  ! EQUAL           [ reduce using rule 17 (expression -> expression DIVIDE expression .) ]
+  ! PLUS            [ shift and go to state 16 ]
+  ! MINUS           [ shift and go to state 17 ]
+  ! TIMES           [ shift and go to state 18 ]
+  ! DIVIDE          [ shift and go to state 19 ]
+  ! LESSER          [ shift and go to state 20 ]
+
+
+state 36
+
+    (18) expression -> expression LESSER expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for LESSER resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+    SEMICOLON       reduce using rule 18 (expression -> expression LESSER expression .)
+    RPAREN          reduce using rule 18 (expression -> expression LESSER expression .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESSER          shift and go to state 20
+    EQUAL           shift and go to state 21
+
+  ! PLUS            [ reduce using rule 18 (expression -> expression LESSER expression .) ]
+  ! MINUS           [ reduce using rule 18 (expression -> expression LESSER expression .) ]
+  ! TIMES           [ reduce using rule 18 (expression -> expression LESSER expression .) ]
+  ! DIVIDE          [ reduce using rule 18 (expression -> expression LESSER expression .) ]
+  ! LESSER          [ reduce using rule 18 (expression -> expression LESSER expression .) ]
+  ! EQUAL           [ reduce using rule 18 (expression -> expression LESSER expression .) ]
+
+
+state 37
+
+    (19) expression -> expression EQUAL expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+    SEMICOLON       reduce using rule 19 (expression -> expression EQUAL expression .)
+    PLUS            reduce using rule 19 (expression -> expression EQUAL expression .)
+    MINUS           reduce using rule 19 (expression -> expression EQUAL expression .)
+    TIMES           reduce using rule 19 (expression -> expression EQUAL expression .)
+    DIVIDE          reduce using rule 19 (expression -> expression EQUAL expression .)
+    LESSER          reduce using rule 19 (expression -> expression EQUAL expression .)
+    EQUAL           reduce using rule 19 (expression -> expression EQUAL expression .)
+    RPAREN          reduce using rule 19 (expression -> expression EQUAL expression .)
+
+  ! PLUS            [ shift and go to state 16 ]
+  ! MINUS           [ shift and go to state 17 ]
+  ! TIMES           [ shift and go to state 18 ]
+  ! DIVIDE          [ shift and go to state 19 ]
+  ! LESSER          [ shift and go to state 20 ]
+  ! EQUAL           [ shift and go to state 21 ]
+
+
+state 38
+
+    (4) statement -> TYPE IDENT ASSIGN . expression SEMICOLON
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    IDENT           shift and go to state 27
+    TYPE            shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 44
+
+state 39
+
+    (5) statement -> IDENT ASSIGN expression . SEMICOLON
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+    SEMICOLON       shift and go to state 45
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESSER          shift and go to state 20
+    EQUAL           shift and go to state 21
+
+
+state 40
+
+    (6) statement -> LCURL statements RCURL .
+
+    TYPE            reduce using rule 6 (statement -> LCURL statements RCURL .)
+    IDENT           reduce using rule 6 (statement -> LCURL statements RCURL .)
+    LCURL           reduce using rule 6 (statement -> LCURL statements RCURL .)
+    IF              reduce using rule 6 (statement -> LCURL statements RCURL .)
+    WHILE           reduce using rule 6 (statement -> LCURL statements RCURL .)
+    TIMES           reduce using rule 6 (statement -> LCURL statements RCURL .)
+    NUMBER          reduce using rule 6 (statement -> LCURL statements RCURL .)
+    STRING          reduce using rule 6 (statement -> LCURL statements RCURL .)
+    MINUS           reduce using rule 6 (statement -> LCURL statements RCURL .)
+    LPAREN          reduce using rule 6 (statement -> LCURL statements RCURL .)
+    $end            reduce using rule 6 (statement -> LCURL statements RCURL .)
+    RCURL           reduce using rule 6 (statement -> LCURL statements RCURL .)
+
+
+state 41
+
+    (7) statement -> IF LPAREN expression . RPAREN LCURL statements RCURL SEMICOLON
+    (8) statement -> IF LPAREN expression . RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+    RPAREN          shift and go to state 46
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESSER          shift and go to state 20
+    EQUAL           shift and go to state 21
+
+
+state 42
+
+    (22) expression -> LPAREN expression RPAREN .
+
+    SEMICOLON       reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    LESSER          reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    EQUAL           reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+
+
+state 43
+
+    (9) statement -> WHILE LPAREN expression . RPAREN LCURL statements RCURL SEMICOLON
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+    RPAREN          shift and go to state 47
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESSER          shift and go to state 20
+    EQUAL           shift and go to state 21
+
+
+state 44
+
+    (4) statement -> TYPE IDENT ASSIGN expression . SEMICOLON
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (18) expression -> expression . LESSER expression
+    (19) expression -> expression . EQUAL expression
+
+    SEMICOLON       shift and go to state 48
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESSER          shift and go to state 20
+    EQUAL           shift and go to state 21
+
+
+state 45
+
+    (5) statement -> IDENT ASSIGN expression SEMICOLON .
+
+    TYPE            reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+    IDENT           reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+    LCURL           reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+    IF              reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+    WHILE           reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+    TIMES           reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+    NUMBER          reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+    STRING          reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+    MINUS           reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+    LPAREN          reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+    RCURL           reduce using rule 5 (statement -> IDENT ASSIGN expression SEMICOLON .)
+
+
+state 46
+
+    (7) statement -> IF LPAREN expression RPAREN . LCURL statements RCURL SEMICOLON
+    (8) statement -> IF LPAREN expression RPAREN . LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+
+    LCURL           shift and go to state 49
+
+
+state 47
+
+    (9) statement -> WHILE LPAREN expression RPAREN . LCURL statements RCURL SEMICOLON
+
+    LCURL           shift and go to state 50
+
+
+state 48
+
+    (4) statement -> TYPE IDENT ASSIGN expression SEMICOLON .
+
+    TYPE            reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+    IDENT           reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+    LCURL           reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+    IF              reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+    WHILE           reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+    TIMES           reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+    NUMBER          reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+    STRING          reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+    MINUS           reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+    LPAREN          reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+    RCURL           reduce using rule 4 (statement -> TYPE IDENT ASSIGN expression SEMICOLON .)
+
+
+state 49
+
+    (7) statement -> IF LPAREN expression RPAREN LCURL . statements RCURL SEMICOLON
+    (8) statement -> IF LPAREN expression RPAREN LCURL . statements RCURL ELSE LCURL statements RCURL SEMICOLON
+    (1) statements -> . statement
+    (2) statements -> . statement statements
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . TYPE IDENT ASSIGN expression SEMICOLON
+    (5) statement -> . IDENT ASSIGN expression SEMICOLON
+    (6) statement -> . LCURL statements RCURL
+    (7) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (8) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+    (9) statement -> . WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (21) statement -> . TIMES statement
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    TYPE            shift and go to state 4
+    IDENT           shift and go to state 5
+    LCURL           shift and go to state 6
+    IF              shift and go to state 7
+    WHILE           shift and go to state 9
+    TIMES           shift and go to state 10
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 3
+    statements                     shift and go to state 51
+    statement                      shift and go to state 2
+
+state 50
+
+    (9) statement -> WHILE LPAREN expression RPAREN LCURL . statements RCURL SEMICOLON
+    (1) statements -> . statement
+    (2) statements -> . statement statements
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . TYPE IDENT ASSIGN expression SEMICOLON
+    (5) statement -> . IDENT ASSIGN expression SEMICOLON
+    (6) statement -> . LCURL statements RCURL
+    (7) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (8) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+    (9) statement -> . WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (21) statement -> . TIMES statement
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    TYPE            shift and go to state 4
+    IDENT           shift and go to state 5
+    LCURL           shift and go to state 6
+    IF              shift and go to state 7
+    WHILE           shift and go to state 9
+    TIMES           shift and go to state 10
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 3
+    statements                     shift and go to state 52
+    statement                      shift and go to state 2
+
+state 51
+
+    (7) statement -> IF LPAREN expression RPAREN LCURL statements . RCURL SEMICOLON
+    (8) statement -> IF LPAREN expression RPAREN LCURL statements . RCURL ELSE LCURL statements RCURL SEMICOLON
+
+    RCURL           shift and go to state 53
+
+
+state 52
+
+    (9) statement -> WHILE LPAREN expression RPAREN LCURL statements . RCURL SEMICOLON
+
+    RCURL           shift and go to state 54
+
+
+state 53
+
+    (7) statement -> IF LPAREN expression RPAREN LCURL statements RCURL . SEMICOLON
+    (8) statement -> IF LPAREN expression RPAREN LCURL statements RCURL . ELSE LCURL statements RCURL SEMICOLON
+
+    SEMICOLON       shift and go to state 55
+    ELSE            shift and go to state 56
+
+
+state 54
+
+    (9) statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL . SEMICOLON
+
+    SEMICOLON       shift and go to state 57
+
+
+state 55
+
+    (7) statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .
+
+    TYPE            reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    IDENT           reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    LCURL           reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    IF              reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    WHILE           reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    TIMES           reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    NUMBER          reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    STRING          reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    MINUS           reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    LPAREN          reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    $end            reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    RCURL           reduce using rule 7 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+
+
+state 56
+
+    (8) statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE . LCURL statements RCURL SEMICOLON
+
+    LCURL           shift and go to state 58
+
+
+state 57
+
+    (9) statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .
+
+    TYPE            reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    IDENT           reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    LCURL           reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    IF              reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    WHILE           reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    TIMES           reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    NUMBER          reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    STRING          reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    MINUS           reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    LPAREN          reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    $end            reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+    RCURL           reduce using rule 9 (statement -> WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON .)
+
+
+state 58
+
+    (8) statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL . statements RCURL SEMICOLON
+    (1) statements -> . statement
+    (2) statements -> . statement statements
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . TYPE IDENT ASSIGN expression SEMICOLON
+    (5) statement -> . IDENT ASSIGN expression SEMICOLON
+    (6) statement -> . LCURL statements RCURL
+    (7) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (8) statement -> . IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON
+    (9) statement -> . WHILE LPAREN expression RPAREN LCURL statements RCURL SEMICOLON
+    (21) statement -> . TIMES statement
+    (10) expression -> . IDENT
+    (11) expression -> . TYPE
+    (12) expression -> . NUMBER
+    (13) expression -> . STRING
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . expression LESSER expression
+    (19) expression -> . expression EQUAL expression
+    (20) expression -> . MINUS NUMBER
+    (22) expression -> . LPAREN expression RPAREN
+
+    TYPE            shift and go to state 4
+    IDENT           shift and go to state 5
+    LCURL           shift and go to state 6
+    IF              shift and go to state 7
+    WHILE           shift and go to state 9
+    TIMES           shift and go to state 10
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 8
+
+    expression                     shift and go to state 3
+    statements                     shift and go to state 59
+    statement                      shift and go to state 2
+
+state 59
+
+    (8) statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements . RCURL SEMICOLON
+
+    RCURL           shift and go to state 60
+
+
+state 60
+
+    (8) statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL . SEMICOLON
+
+    SEMICOLON       shift and go to state 61
+
+
+state 61
+
+    (8) statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .
+
+    TYPE            reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+    IDENT           reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+    LCURL           reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+    IF              reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+    WHILE           reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+    TIMES           reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+    NUMBER          reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+    STRING          reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+    MINUS           reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+    LPAREN          reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+    $end            reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+    RCURL           reduce using rule 8 (statement -> IF LPAREN expression RPAREN LCURL statements RCURL ELSE LCURL statements RCURL SEMICOLON .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 36 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 36 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 36 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 36 resolved as shift
+WARNING: shift/reduce conflict for LESSER in state 36 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 36 resolved as shift
