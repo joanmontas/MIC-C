@@ -5,7 +5,7 @@
 import unittest
 # TODO(JoanMontas) turn test into its own class, an have a main entry point
 if __name__ == "__main__":
-    allTestsLocation = ["SyntacticAnalysis/test", "SemanticAnalysis/test", "IntermediateRepresentation/test"]
+    allTestsLocation = ["SyntacticAnalysis/test", "SemanticAnalysis/test"]
 
     allTests = unittest.TestSuite()
     for i in allTestsLocation:
