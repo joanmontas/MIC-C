@@ -1,6 +1,7 @@
 # MIC-C
 Compiler for a niche architecture.
 
+# Grammar
     <statements> ::= statement
                  | statement statements
 
